@@ -177,4 +177,4 @@ cython_debug/
 .pypirc
 >>>>>>> e89d8c5 (Базовые скрипты добавлены)
 
-output/
+# output/
