@@ -5,8 +5,8 @@ from shapely.geometry import LineString
 geotiff_path = '../input/srtm.tif'
 
 # Координаты двух точек (широта, долгота)
-nps1_lat, nps1_lon = 48.901265, 134.900967  # НПС-1
-nps2_lat, nps2_lon = 49.486001, 135.188316  # НПС-2
+point_1_lat, point_1_lon = 48.901265, 134.900967  # Точка 1
+point_2_lat, point_2_lon = 49.486001, 135.188316  # Точка 2
 
 # Кол-во точек профиля
 num_samples = 500
@@ -22,8 +22,8 @@ with rasterio.open(geotiff_path) as dataset:
 # Переводим в UTM зона 52N — EPSG:32652
 transformer = Transformer.from_crs(crs, "EPSG:32652", always_xy=True)
 
-nps1_x, nps1_y = transformer.transform(nps1_lon, nps1_lat)
-nps2_x, nps2_y = transformer.transform(nps2_lon, nps2_lat)
+nps1_x, nps1_y = transformer.transform(point_1_lon, point_1_lat)
+nps2_x, nps2_y = transformer.transform(point_2_lon, point_2_lat)
 
 line = LineString([(nps1_x, nps1_y), (nps2_x, nps2_y)])  # теперь в метрах
 
