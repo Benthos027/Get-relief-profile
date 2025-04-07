@@ -2,7 +2,7 @@ from pyproj import Transformer
 import rasterio
 from shapely.geometry import LineString
 
-geotiff_path = '../Input/srtm.tif'
+geotiff_path = '../input/srtm.tif'
 
 # Координаты двух точек (широта, долгота)
 nps1_lat, nps1_lon = 48.901265, 134.900967  # НПС-1
@@ -15,7 +15,6 @@ with rasterio.open(geotiff_path) as src:
     elevation_data = src.read(1)  # Читаем только первый канал
     transform = src.transform  # Affine-преобразование
     crs = src.crs  # Система координат файла
-
 
 with rasterio.open(geotiff_path) as dataset:
     print(dataset.meta)

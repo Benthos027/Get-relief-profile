@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 
 from Exports import create_output_directory
 
-create_output_directory()  # Создаём папку output, если её нет
+# Создаём папку output, если её нет:
+create_output_directory()
 
 # Открываем GeoTIFF файл:
 with rasterio.open('../input/srtm.tif') as dataset:

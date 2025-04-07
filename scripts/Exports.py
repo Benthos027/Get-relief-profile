@@ -20,7 +20,8 @@ def create_output_directory():
 
 def export_csv(heights_clean, distances_clean, slopes_percent):
     """ Экспорт в CSV """
-    create_output_directory()  # Создаём папку output, если её нет
+    # Создаём папку output, если её нет:
+    create_output_directory()
 
     csv_filename = "../output/relief_profile.csv"
 
@@ -38,7 +39,8 @@ def export_csv(heights_clean, distances_clean, slopes_percent):
 def export_json(heights_clean, distances_clean, slopes_percent):
     """ Экспорт в JSON """
 
-    create_output_directory()  # Создаём папку output, если её нет
+    # Создаём папку output, если её нет:
+    create_output_directory()
 
     json_data = []
     for i in range(len(heights_clean)):
@@ -61,7 +63,8 @@ def export_markdown(point_1_lat, point_1_lon, point_2_lat, point_2_lon,
                     min_clearance_value, min_clearance_distance, min_clearance_height):
     """ Экспорт Markdown-отчёта """
 
-    create_output_directory()  # Создаём папку output, если её нет
+    # Создаём папку output, если её нет:
+    create_output_directory()
 
     # Путь и имя куда сохранять:
     report_filename = "../output/relief_report.md"
@@ -100,7 +103,8 @@ def export_markdown(point_1_lat, point_1_lon, point_2_lat, point_2_lon,
 def export_interactive_map(point_1_lat, point_1_lon, point_2_lat, point_2_lon):
     """ Экспорт интерактивной карты """
 
-    create_output_directory()  # Создаём папку output, если её нет
+    # Создаём папку output, если её нет:
+    create_output_directory()
 
     # Создаем карту с фоновым слоем:
     m = folium.Map(location=[(point_1_lat + point_2_lat) / 2, (point_1_lon + point_2_lon) / 2], zoom_start=10)

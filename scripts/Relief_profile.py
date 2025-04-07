@@ -10,7 +10,7 @@ point_1_lat, point_1_lon = 48.901265, 134.900967
 point_2_lat, point_2_lon = 49.486001, 135.188316
 
 # Путь к GeoTIFF (DEM в EPSG:4326)
-geotiff_path = '../Input/srtm.tif'
+geotiff_path = '../input/srtm.tif'
 
 # Количество точек профиля:
 num_samples = 500
@@ -157,5 +157,5 @@ export_markdown(point_1_lat, point_1_lon,
 export_interactive_map(point_1_lat, point_1_lon,
                        point_2_lat, point_2_lon)
 
-# Отобразить графики:
+# Отобразить график:
 plt.show()
