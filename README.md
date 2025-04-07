@@ -52,7 +52,7 @@ sudo apt install -y \
 pip install elevation
 ```
 
-Загрузка данных высот по координатам создаст файл srtm.tif в текущей директории:
+Загрузка данных высот по координатам создаст файл .tif в текущей директории:
 ```bash
 eio clip -o {имя файла}.tif --bounds {Коордтнаты первой точки} {Координаты второй точки}
 ```
@@ -74,7 +74,7 @@ cd ~
 ```
 
 ## Опционально карту можно открывать карту через matplotlib (библеотека для графиков и т.п. в Python) или преобразовав её в .png.
-Для этого находясь в виртуальном окружении следует прописать в терминале следущее:
+Для этого находясь в запущенном виртуальном окружении директории вашего проекта следует прописать в терминале следущее:
 ```bash
 pip install elevation rasterio matplotlib
 ```
@@ -84,26 +84,21 @@ pip install elevation rasterio matplotlib
 touch elevation.py
 ```
 
-Открываем файл elevation.py через nano (или что либо еще на ваше усмотрение):
+Открываем файл elevation.py через nano (или любой другой редактор):
 ```bash
 nano elevation.py
 ```
 
 Внутри файла прописываем следующий код:
 ```Python
-# Подключение библиотек:
 import rasterio
 import matplotlib.pyplot as plt
 
-# Открываем GeoTIFF файл:
 with rasterio.open('srtm.tif') as dataset:
-    data = dataset.read(1)  # Первый канал (высоты)
-    bounds = dataset.bounds  # Границы в координатах
-
-    # bounds — это объект с четырьмя значениями: left, bottom, right, top
+    data = dataset.read(1)
+    bounds = dataset.bounds
     extent = [bounds.left, bounds.right, bounds.bottom, bounds.top]
 
-    # Визуализируем данные с координатной привязкой
     plt.figure(figsize=(10, 8))
     plt.imshow(data, cmap='terrain', extent=extent, origin='upper')
     plt.colorbar(label='Высота (м)')
@@ -112,11 +107,11 @@ with rasterio.open('srtm.tif') as dataset:
     plt.title('Цифровая модель рельефа (SRTM)')
     plt.grid(True)
 
-    # Сохраняем изображение:
-    # plt.savefig('output_image.png', dpi=300)
+    # Сохранить карту в текущую директорию:
+    plt.savefig('output_image.png', dpi=300)
 
-    # Показываем изображение
-    plt.show(block=True)  # Эта строка блокирует завершение программы до закрытия окна
+    # Открыть карту в окне:
+    plt.show(block=True)
 ```
 
 Выход из файла elevation.py:
@@ -128,6 +123,8 @@ Cntrl + X (Закрыть)
 ```bash
 python3 elevation.py
 ```
+
+После этого откроется окно matplotlib с картой высот и она же появится в ваше директории в формате .png.
 
 
 ## Опционально карту можно открывать карту через qgis.
