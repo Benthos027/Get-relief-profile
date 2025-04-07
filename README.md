@@ -11,12 +11,15 @@ pip install rasterio matplotlib numpy pyproj shapely elevation
 
 Папка output служит для получения результатов.
 
+### Скрипт Exports.py
 Скрипт Exports.py содержит функции экспорта, на которые ссылаются прочие скрипты.
 
+### Скрипт Elevation.py
 Скрипт Elevation.py позволяет получть png картинку карты.
 
 ![height_map](https://github.com/user-attachments/assets/a07755f0-319c-497f-be4e-a01d8343697f)
 
+### Скрипт Relief_profile.py
 Скрипт Relief_profile.py позволяет получить профиль рельефа. Выглядит это так:
 ![relief_profile](https://github.com/user-attachments/assets/a48d778b-ba23-4cc3-93a1-e60970ade311)
 
