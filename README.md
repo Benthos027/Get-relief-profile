@@ -51,8 +51,7 @@ nano elevation.py
 
 Внутри файла прописываем следующий код:
 
-########## Начало файла elevation.py ##########
-
+```Python
 # Подключение библиотек:
 import rasterio
 import matplotlib.pyplot as plt
@@ -79,8 +78,7 @@ with rasterio.open('srtm.tif') as dataset:
 
     # Показываем изображение
     plt.show(block=True)  # Эта строка блокирует завершение программы до закрытия окна
-
-########## Конец файла elevation.py ##########
+```
 
 Выход из файла elevation.py:
 Ctrl + O
