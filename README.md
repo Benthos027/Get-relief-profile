@@ -3,7 +3,7 @@
 
 Так же для этого потребуется ряд пакетов Python. Установить их можно прописав в терминале следущее:
 ```bash
-pip install rasterio matplotlib numpy pyproj shapely
+pip install rasterio matplotlib numpy pyproj shapely elevation
 ```
 (Вроде бы это все? Непомню. Потом проверю как-нибудь.)
 
@@ -11,9 +11,11 @@ pip install rasterio matplotlib numpy pyproj shapely
 
 Папка output служит для получения результатов.
 
+Скрипт Exports.py содержит функции экспорта, на которые ссылаются прочие скрипты.
+
 Скрипт Elevation.py позволяет получть png картинку карты.
 
-Скрипт Exports.py содержит функции экспорта, на которые ссылаются прочие скрипты.
+![height_map](https://github.com/user-attachments/assets/a07755f0-319c-497f-be4e-a01d8343697f)
 
 Скрипт Relief_profile.py позволяет получить профиль рельефа. Выглядит это так:
 ![relief_profile](https://github.com/user-attachments/assets/a48d778b-ba23-4cc3-93a1-e60970ade311)
