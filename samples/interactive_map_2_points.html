@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_540003f07b20e964529b1d13c5c5ba03 {
+                #map_be8f7de27f6cb8eb121077e31e1c2cd1 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,16 +39,16 @@
 <body>
     
     
-            <div class="folium-map" id="map_540003f07b20e964529b1d13c5c5ba03" ></div>
+            <div class="folium-map" id="map_be8f7de27f6cb8eb121077e31e1c2cd1" ></div>
         
 </body>
 <script>
     
     
-            var map_540003f07b20e964529b1d13c5c5ba03 = L.map(
-                "map_540003f07b20e964529b1d13c5c5ba03",
+            var map_be8f7de27f6cb8eb121077e31e1c2cd1 = L.map(
+                "map_be8f7de27f6cb8eb121077e31e1c2cd1",
                 {
-                    center: [49.193633000000005, 135.0446415],
+                    center: [49.19468, 135.04386],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 10,
@@ -63,7 +63,7 @@
 
         
     
-            var tile_layer_2ac0d0a80e82ecfcf0ba69c270defc17 = L.tileLayer(
+            var tile_layer_69d1e2a94f83438a8a21751f993a36f7 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -80,23 +80,23 @@
             );
         
     
-            tile_layer_2ac0d0a80e82ecfcf0ba69c270defc17.addTo(map_540003f07b20e964529b1d13c5c5ba03);
+            tile_layer_69d1e2a94f83438a8a21751f993a36f7.addTo(map_be8f7de27f6cb8eb121077e31e1c2cd1);
         
     
-            var poly_line_29eb3df3b117688b958f39f9d4d3ab3a = L.polyline(
-                [[48.901265, 134.900967], [49.486001, 135.188316]],
+            var poly_line_d29d73751138f679d16d11e9a573291e = L.polyline(
+                [[48.90445, 134.89769], [49.48491, 135.19003]],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
-            ).addTo(map_540003f07b20e964529b1d13c5c5ba03);
+            ).addTo(map_be8f7de27f6cb8eb121077e31e1c2cd1);
         
     
-            var marker_3f7dd74f586b9c39e9dbf7860b968ec6 = L.marker(
-                [48.901265, 134.900967],
+            var marker_223cfa982ea49ee4fb3435f88b14bef7 = L.marker(
+                [48.90445, 134.89769],
                 {
 }
-            ).addTo(map_540003f07b20e964529b1d13c5c5ba03);
+            ).addTo(map_be8f7de27f6cb8eb121077e31e1c2cd1);
         
     
-            var icon_a424f49b25eacd01aa65375e7faaecd6 = L.AwesomeMarkers.icon(
+            var icon_628fe8eae2662f6aec844d54d0965b91 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -107,34 +107,34 @@
             );
         
     
-        var popup_95d0d9c1ce02b40d2f63688851fd204a = L.popup({
+        var popup_7d2f6ee09ed8f731068dd9b8334392c9 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_c71bd1931354667fce64cd6aa0e4db26 = $(`<div id="html_c71bd1931354667fce64cd6aa0e4db26" style="width: 100.0%; height: 100.0%;">НПС-1</div>`)[0];
-                popup_95d0d9c1ce02b40d2f63688851fd204a.setContent(html_c71bd1931354667fce64cd6aa0e4db26);
+                var html_422bfe694c49b2541669cdf810498d6c = $(`<div id="html_422bfe694c49b2541669cdf810498d6c" style="width: 100.0%; height: 100.0%;">Начальная точка</div>`)[0];
+                popup_7d2f6ee09ed8f731068dd9b8334392c9.setContent(html_422bfe694c49b2541669cdf810498d6c);
             
         
 
-        marker_3f7dd74f586b9c39e9dbf7860b968ec6.bindPopup(popup_95d0d9c1ce02b40d2f63688851fd204a)
+        marker_223cfa982ea49ee4fb3435f88b14bef7.bindPopup(popup_7d2f6ee09ed8f731068dd9b8334392c9)
         ;
 
         
     
     
-                marker_3f7dd74f586b9c39e9dbf7860b968ec6.setIcon(icon_a424f49b25eacd01aa65375e7faaecd6);
+                marker_223cfa982ea49ee4fb3435f88b14bef7.setIcon(icon_628fe8eae2662f6aec844d54d0965b91);
             
     
-            var marker_707ab3fd8d61fd4f6e44d700d3e9ca03 = L.marker(
-                [49.486001, 135.188316],
+            var marker_2b550243d8768311a0ea056ed51d9ec7 = L.marker(
+                [49.48491, 135.19003],
                 {
 }
-            ).addTo(map_540003f07b20e964529b1d13c5c5ba03);
+            ).addTo(map_be8f7de27f6cb8eb121077e31e1c2cd1);
         
     
-            var icon_4ae83916a1a5b33e0128f5eb8f415bfd = L.AwesomeMarkers.icon(
+            var icon_d6c493f000de73726d7cffc1f2935d53 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -145,24 +145,24 @@
             );
         
     
-        var popup_2f394e8b68439818abf7c7e021485300 = L.popup({
+        var popup_f774d3bdcdaabbc5dfa542b4c4a3e571 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_96f03913bb7e08470a339975c25d5002 = $(`<div id="html_96f03913bb7e08470a339975c25d5002" style="width: 100.0%; height: 100.0%;">НПС-2</div>`)[0];
-                popup_2f394e8b68439818abf7c7e021485300.setContent(html_96f03913bb7e08470a339975c25d5002);
+                var html_3c602f625928e88c3453dfd97c666ad6 = $(`<div id="html_3c602f625928e88c3453dfd97c666ad6" style="width: 100.0%; height: 100.0%;">Конечная точка</div>`)[0];
+                popup_f774d3bdcdaabbc5dfa542b4c4a3e571.setContent(html_3c602f625928e88c3453dfd97c666ad6);
             
         
 
-        marker_707ab3fd8d61fd4f6e44d700d3e9ca03.bindPopup(popup_2f394e8b68439818abf7c7e021485300)
+        marker_2b550243d8768311a0ea056ed51d9ec7.bindPopup(popup_f774d3bdcdaabbc5dfa542b4c4a3e571)
         ;
 
         
     
     
-                marker_707ab3fd8d61fd4f6e44d700d3e9ca03.setIcon(icon_4ae83916a1a5b33e0128f5eb8f415bfd);
+                marker_2b550243d8768311a0ea056ed51d9ec7.setIcon(icon_d6c493f000de73726d7cffc1f2935d53);
             
 </script>
 </html>

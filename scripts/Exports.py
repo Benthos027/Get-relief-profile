@@ -57,18 +57,16 @@ def export_json(heights_clean, distances_clean, slopes_percent):
         json.dump(json_data, file, ensure_ascii=False, indent=2)
 
 
-def export_markdown(point_1_lat, point_1_lon, point_2_lat, point_2_lon,
+def export_markdown(coordinates,
                     distances, min_height, max_height,
                     max_slope_percent, line_of_sight_blocked,
-                    min_clearance_value, min_clearance_distance, min_clearance_height):
+                    min_clearance_value, min_clearance_distance, min_clearance_height,
+                    report_filename="../output/relief_report.md",
+                    plot_filename="../output/relief_profile.png"):
     """ Экспорт Markdown-отчёта """
 
     # Создаём папку output, если её нет:
     create_output_directory()
-
-    # Путь и имя куда сохранять:
-    report_filename = "../output/relief_report.md"
-    plot_filename = "../output/relief_profile.png"
 
     # Сохраняем график:
     plt.savefig(plot_filename, dpi=300)
@@ -77,9 +75,11 @@ def export_markdown(point_1_lat, point_1_lon, point_2_lat, point_2_lon,
     with open(report_filename, "w", encoding="utf-8") as report:
         report.write(f"# Отчёт по профилю рельефа\n")
         report.write(f"**Дата:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}\n\n")
-        report.write(f"**Начальная точка:** широта {point_1_lat}, долгота {point_1_lon}\n\n")
-        report.write(f"**Конечная точка:** широта {point_2_lat}, долгота {point_2_lon}\n\n")
-
+        for i, (lat, lon) in enumerate(coordinates):
+            # report.write(f"**Точка {i}:** широта {lat}, долгота {lon}\n\n")
+            report.write(f"**Начальная точка:** широта {lat}, долгота {lon}\n\n" if i == 0
+                         else (f"**Конечная точка:** широта {lat}, долгота {lon}\n\n" if i == len(coordinates) - 1
+                               else f"**Точка {i}:** широта {lat}, долгота {lon}\n\n"))
         report.write(f"## Основные характеристики рельефа:\n")
         report.write(f"- Общая длина: {round(distances[-1], 2)} км\n")
         report.write(f"- Мин. высота: {round(min_height, 2)} м\n")
@@ -100,22 +100,29 @@ def export_markdown(point_1_lat, point_1_lon, point_2_lat, point_2_lon,
         report.write(f"![Профиль рельефа]({plot_filename})\n")
 
 
-def export_interactive_map(point_1_lat, point_1_lon, point_2_lat, point_2_lon):
-    """ Экспорт интерактивной карты """
+def export_interactive_map(coordinates, path='../output/interactive_map.html'):
+    """ Экспорт интерактивной карты с маршрутом по множеству координат """
 
     # Создаём папку output, если её нет:
     create_output_directory()
 
-    # Создаем карту с фоновым слоем:
-    m = folium.Map(location=[(point_1_lat + point_2_lat) / 2, (point_1_lon + point_2_lon) / 2], zoom_start=10)
+    # Вычисляем центр карты как среднее значение широты и долготы всех точек:
+    avg_lat = sum(lat for lat, lon in coordinates) / len(coordinates)
+    avg_lon = sum(lon for lat, lon in coordinates) / len(coordinates)
 
-    # Добавляем маршрут на карту:
-    folium.PolyLine([(point_1_lat, point_1_lon), (point_2_lat, point_2_lon)], color='blue', weight=2.5,
-                    opacity=1).add_to(m)
+    # Создаем карту:
+    m = folium.Map(location=[avg_lat, avg_lon], zoom_start=10)
 
-    # Добавляем маркеры НПС:
-    folium.Marker([point_1_lat, point_1_lon], popup="НПС-1", icon=folium.Icon(color='green')).add_to(m)
-    folium.Marker([point_2_lat, point_2_lon], popup="НПС-2", icon=folium.Icon(color='red')).add_to(m)
+    # Добавляем маршрут:
+    folium.PolyLine(coordinates, color='blue', weight=2.5, opacity=1).add_to(m)
 
-    # Сохраняем карту в файл:
-    m.save('../output/profile_map.html')
+    # Добавляем маркеры: НПС-1, повороты, НПС-2
+    folium.Marker(coordinates[0], popup="Начальная_точка", icon=folium.Icon(color='green')).add_to(m)
+    folium.Marker(coordinates[-1], popup="Конечная_точка", icon=folium.Icon(color='red')).add_to(m)
+
+    # При желании можно отметить промежуточные точки
+    for i, coord in enumerate(coordinates[1:-1], start=1):
+        folium.Marker(coord, popup=f"Точка_{i}", icon=folium.Icon(color='blue', icon='info-sign')).add_to(m)
+
+    # Сохраняем карту:
+    m.save(path)
