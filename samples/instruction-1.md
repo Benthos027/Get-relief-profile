@@ -129,7 +129,7 @@ python3 elevation.py
 ```
 
 После этого откроется окно matplotlib с картой высот, и она же появится в текущей директории в формате .png. Выглядит это так:
-![height_map](https://github.com/user-attachments/assets/09fa007f-b2cb-4c26-ae3b-27c27d5c283f)
+![height_map](/samples/height_map.png)
 
 
 
