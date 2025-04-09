@@ -26,7 +26,7 @@ geotiff_path = '../input/srtm.tif'
 
 # Настройки
 num_samples = 1000
-smooth_coefficient = 5
+smooth_coefficient = 9
 smooth_type = 1    # 0 - без сглаживания, 1 - зеркальное, 3 - Гауссовский фильтр
 
 # Включение экспорта:
@@ -70,7 +70,7 @@ profile_heights = np.array(profile_heights)
 
 
 def smooth_profile_reflect(profile, window_size=5):
-    '''Функция зеркального сглаживания'''
+    """Функция зеркального сглаживания"""
     pad = window_size // 2
     padded = np.pad(profile, (pad, pad), mode='reflect')
     return np.convolve(padded, np.ones(window_size) / window_size, mode='valid')
@@ -170,10 +170,8 @@ plt.tight_layout()
 # Экспорты:
 if export_to_csv:
     export_csv(heights_clean, distances_clean, slopes_percent)
-
 if export_to_json:
     export_json(heights_clean, distances_clean, slopes_percent)
-
 if export_to_markdown:
     export_markdown(coordinates,
                     distances,
@@ -186,7 +184,6 @@ if export_to_markdown:
                     min_clearance_height,
                     report_filename="../output/relief_report_multiple_points.md",
                     plot_filename="../output/relief_profile_multiple_points.png")
-
 if export_to_interactive_map:
     export_interactive_map(coordinates, path='../output/interactive_map_multiple_points.html')
 

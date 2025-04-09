@@ -54,6 +54,7 @@ profile_heights = np.array(profile_heights)
 # Сглаживание:
 
 def smooth_profile_reflect(profile, window_size=5):
+    """Функция зеркального сглаживания"""
     pad = window_size // 2
     padded = np.pad(profile, (pad, pad), mode='reflect')
     return np.convolve(padded, np.ones(window_size) / window_size, mode='valid')
@@ -146,13 +147,10 @@ ax2.grid(True)
 plt.tight_layout()
 
 # Экспорты:
-
 if export_to_csv:
     export_csv(heights_clean, distances_clean, slopes_percent)
-
 if export_to_json:
     export_json(heights_clean, distances_clean, slopes_percent)
-
 if export_to_markdown:
     export_markdown(coordinates,
                     distances,
@@ -165,7 +163,6 @@ if export_to_markdown:
                     min_clearance_height,
                     report_filename="../output/relief_report_2_points.md",
                     plot_filename="../output/relief_profile_2_points.png")
-
 if export_to_interactive_map:
     export_interactive_map(coordinates, path='../output/interactive_map_2_points.html')
 
