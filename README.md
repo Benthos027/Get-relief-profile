@@ -30,7 +30,10 @@ pip install rasterio matplotlib numpy pyproj shapely elevation
 
 Так же данные можно экспортировать в форматах .csv, .json.
 
-Так же можно экспортировать интерактивную карту рельефа в .html формате.
+Так же можно экспортировать интерактивную карту рельефа в .html формате. Выглядит это так:
+
+![image](https://github.com/user-attachments/assets/1639601d-4281-45c9-a480-60a7d88ecbcb)
+
 
 ### Скрипт Relief_profile_multiple_points.py
 Скрипт Relief_profile.py позволяет получить профиль рельефа на трассе построенной по множеству точек. Выглядит это так:
@@ -43,6 +46,9 @@ pip install rasterio matplotlib numpy pyproj shapely elevation
 
 Так же данные можно экспортировать в форматах .csv, .json.
 
-Так же можно экспортировать интерактивную карту рельефа в .html формате.
+Так же можно экспортировать интерактивную карту рельефа в .html формате. Выглядит это так:
+
+![image](https://github.com/user-attachments/assets/3c51bc8f-0594-40ff-8c84-625fefdecf44)
+
 
 
