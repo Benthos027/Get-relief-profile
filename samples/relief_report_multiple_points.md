@@ -37,4 +37,4 @@
 - Высота рельефа в этой точке: 215.2 м
 
 ## График профиля рельефа:
-![Профиль рельефа](../output/relief_profile_multiple_points.png)
+![Профиль по множеству точек](/samples/relief_profile_multiple_points.png)
